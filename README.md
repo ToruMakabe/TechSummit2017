@@ -49,7 +49,7 @@ $ kubectl delete deploy azure-vote-back
 ```
 
 ## ACS-Engine
-acs-engine/
+acs-engine/default/
 * Sample K8s cluster definition for ACS-Engine
 
 ```
