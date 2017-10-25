@@ -299,5 +299,8 @@ parameters.json
 # AZTK secrets
 secrets.yaml
 
+# AZTK temporary directory
+tmp/
+
 # ACS-Engine outputs
 _output/
