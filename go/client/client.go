@@ -13,9 +13,9 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-
 	log.Println("Hostname: ", hostname)
 
+	log.Println("Network Interfaces: ")
 	ifaces, err := net.Interfaces()
 	if err != nil {
 		panic(err)
