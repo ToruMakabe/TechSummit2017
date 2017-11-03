@@ -17,8 +17,8 @@ go/
     * Expose port 8080
     * Display own hostname, all IPs on network interfaces, environemt variables and Azure instance metadatas
   * client: Sidecar container
-    * Monitor server HTTP via localhost
-    * Display own hostname and all IPs on network interfaces
+    * Monitor HTTP server via localhost and log it to stdout
+    * Write own hostname and all IPs on network interfaces to stdout when container start
 * Dockerfile
   * Multi-stage build
 
