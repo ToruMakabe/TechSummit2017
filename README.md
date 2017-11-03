@@ -15,7 +15,7 @@ go/
 * Golang sample apps 
   * server: Simple HTTP server
     * Expose port 8080
-    * Display own hostname and all IPs on network interfaces
+    * Display own hostname, all IPs on network interfaces, environemt variables and Azure instance metadatas
   * client: Sidecar container
     * Monitor server HTTP via localhost
     * Display own hostname and all IPs on network interfaces
