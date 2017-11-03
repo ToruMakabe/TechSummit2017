@@ -15,10 +15,34 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		panic(err)
 	}
-	fmt.Fprintln(w, "Hostname: ", hostname)
+	fmt.Fprintln(w, "[Hostname]")
+	fmt.Fprintln(w, hostname)
 
 	fmt.Fprintln(w)
-	fmt.Fprintln(w, "Env. Variables: ")
+	fmt.Fprintln(w, "[Network Interfaces]")
+	ifaces, err := net.Interfaces()
+	if err != nil {
+		panic(err)
+	}
+	for _, i := range ifaces {
+		addrs, err := i.Addrs()
+		if err != nil {
+			panic(err)
+		}
+		for _, addr := range addrs {
+			var ip net.IP
+			switch v := addr.(type) {
+			case *net.IPNet:
+				ip = v.IP
+			case *net.IPAddr:
+				ip = v.IP
+			}
+			fmt.Fprintln(w, "IP Address: ", ip)
+		}
+	}
+
+	fmt.Fprintln(w)
+	fmt.Fprintln(w, "[Env. Variables]")
 	for _, pair := range os.Environ() {
 		fmt.Fprintln(w, pair)
 	}
@@ -40,34 +64,10 @@ func handler(w http.ResponseWriter, r *http.Request) {
 			panic(err)
 		}
 		indentJson := buf.String()
-		//		bodyString := string(bodyBytes)
-		fmt.Fprintln(w, "Instance Metadata: ")
-		//		fmt.Fprintln(w, bodyString)
+		fmt.Fprintln(w, "[Instance Metadata]")
 		fmt.Fprintln(w, indentJson)
 	}
 
-	fmt.Fprintln(w)
-	fmt.Fprintln(w, "Network Interfaces: ")
-	ifaces, err := net.Interfaces()
-	if err != nil {
-		panic(err)
-	}
-	for _, i := range ifaces {
-		addrs, err := i.Addrs()
-		if err != nil {
-			panic(err)
-		}
-		for _, addr := range addrs {
-			var ip net.IP
-			switch v := addr.(type) {
-			case *net.IPNet:
-				ip = v.IP
-			case *net.IPAddr:
-				ip = v.IP
-			}
-			fmt.Fprintln(w, "IP Address: ", ip)
-		}
-	}
 }
 
 func main() {

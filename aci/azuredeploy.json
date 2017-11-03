@@ -3,10 +3,10 @@
     "contentVersion": "1.0.0.0",
     "parameters": {},
     "variables": {
-        "container1name": "getip",
-        "container1image": "torumakabe/ts17getenv:0.0.5",
+        "container1name": "getenv",
+        "container1image": "torumakabe/ts17getenv:0.0.7",
         "container2name": "sidecar",
-        "container2image": "torumakabe/ts17sidecar:0.0.2"
+        "container2image": "torumakabe/ts17sidecar:0.0.3"
     },
     "resources": [
         {
