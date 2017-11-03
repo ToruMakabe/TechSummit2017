@@ -4,7 +4,7 @@
     "parameters": {},
     "variables": {
         "container1name": "getip",
-        "container1image": "torumakabe/ts17getenv:0.0.4",
+        "container1image": "torumakabe/ts17getenv:0.0.5",
         "container2name": "sidecar",
         "container2image": "torumakabe/ts17sidecar:0.0.2"
     },

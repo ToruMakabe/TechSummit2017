@@ -1,6 +1,8 @@
 package main
 
 import (
+	"bytes"
+	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"net"
@@ -32,9 +34,16 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	} else {
 		defer resp.Body.Close()
 		bodyBytes, _ := ioutil.ReadAll(resp.Body)
-		bodyString := string(bodyBytes)
+		var buf bytes.Buffer
+		err := json.Indent(&buf, []byte(bodyBytes), "", "  ")
+		if err != nil {
+			panic(err)
+		}
+		indentJson := buf.String()
+		//		bodyString := string(bodyBytes)
 		fmt.Fprintln(w, "Instance Metadata: ")
-		fmt.Fprintln(w, bodyString)
+		//		fmt.Fprintln(w, bodyString)
+		fmt.Fprintln(w, indentJson)
 	}
 
 	fmt.Fprintln(w)
