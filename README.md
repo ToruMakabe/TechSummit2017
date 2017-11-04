@@ -1,6 +1,8 @@
 # Sample code for MS Tech Summit 2017 Japan
 
 ## Azure Container Instances Demo
+* Requirement: [Install Azure CLI](https://github.com/Azure/azure-cli)
+
 aci/
 * Azure Resource Manager template for containers deployment to ACI
 
@@ -23,6 +25,8 @@ go/
   * Multi-stage build
 
 ## Azure Distributed Data Science Toolkit
+* Requirement: [Install AZTK](https://github.com/Azure/aztk)
+
 aztk/
 * Sample cluster configuration of AZTK
   * Modify parameters of sample.secret.yaml
@@ -36,6 +40,8 @@ $ aztk spark cluster delete --id yourClusterId
 ```
 
 ## Azure Container Service - AKS
+* Requirement: [Deploy AKS Cluster & Install kubectl CLI](https://docs.microsoft.com/en-us/azure/aks/kubernetes-walkthrough)
+
 aks/
 * Sample K8s service manifest
   * simple vote application
@@ -49,6 +55,8 @@ $ kubectl delete deploy azure-vote-back
 ```
 
 ## ACS-Engine
+* Requirement: [Install ACS-Engine](https://github.com/Azure/acs-engine)
+
 acs-engine/default/
 * Sample K8s cluster definition for ACS-Engine
 
