@@ -305,3 +305,6 @@ tmp/
 # ACS-Engine outputs
 _output/
 translations/
+
+# Demo Script
+demo.sh
